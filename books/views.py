@@ -1,7 +1,35 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from datetime import datetime
 import random
+from . import models
+
+
+# Book detail
+def books_detail_view(request, id):
+    if request.method == 'GET':
+        book_id = get_object_or_404(models.Books, id=id)
+        return render(
+            request,
+            template_name="books/books_detail.html",
+            context={
+                "book_id": book_id
+            }
+        )
+
+
+# Book list
+
+def books_list_view(request):
+    if request.method == "GET":
+        queryset = models.Books.objects.filter().order_by('-id')
+        return render(
+            request,
+            template_name='books/books_list.html',
+            context={
+                'book': queryset
+            }
+        )
 
 
 def name_view(request):
