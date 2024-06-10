@@ -1,6 +1,29 @@
-<h1>Название - {{ book_id.name }}</h1>
+{% load static %}
+
+
+{% include '../header.html' %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<h1 class="h1_name">Название - {{ book_id.name }}</h1>
 <img src="{{ book_id.image.url }}" width="280" height="350">
 <p>Жанр - {{book_id.genre}}</p>
 <p>О книге - {{ book_id.about_book }}</p>
 <p>Почта - {{ book_id.email }}</p>
 <data>Дата создания поста - {{ book_id.created_at }}</data>
+
+
+<ul>
+    {% for i in book_id.reviews_books.all %}
+
+    <li>
+        <h1>{{ i.stars }}</h1>
+        <p>{{ i.text }}</p>
+        <p>{{ i.created_at }}</p>
+    </li>
+
+    {% endfor %}
+</ul>
+
+
+{% include '../footer.html' %}

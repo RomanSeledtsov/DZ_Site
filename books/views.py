@@ -5,6 +5,32 @@ import random
 from . import models
 
 
+# Adventure tag
+
+def advent_tag_view(request):
+    if request.method == 'GET':
+        advents_tags = models.MyBooks.objects.filter(tags__name="Приключения").order_by('-id')
+        return render(
+            request,
+            template_name='my_books/advents_tags.html',
+            context={'advents_tags': advents_tags}
+        )
+
+
+# My books
+
+def all_books(request):
+    if request.method == "GET":
+        books = models.MyBooks.objects.filter().order_by('-id')
+        return render(
+            request,
+            template_name='my_books/all_books.html',
+            context={
+                'books': books
+            }
+        )
+
+
 # Book detail
 def books_detail_view(request, id):
     if request.method == 'GET':
