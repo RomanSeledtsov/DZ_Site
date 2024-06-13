@@ -1,4 +1,7 @@
+{% load static %}
 {% include '../header.html' %}
+<link rel="stylesheet" href="{% static 'css/crud_book.css' %}">
+<button type="button" class="btn btn-primary"><a href="/create_book/" class="book_url">Добавить книгу</a></button>
 <h1>Список книг</h1>
 {% for i in book %}
 <div class="card" style="width: 18rem;">
@@ -7,6 +10,10 @@
     <h5 class="card-title">{{ i.name }}</h5>
     <p class="card-text">{{ i.genre }}</p>
     <a href="/books/{{ i.id }}/" class="btn btn-primary">О книге</a>
+    <a href="/books/{{ i.id }}/delete" class="btn btn-primary">Удалить</a>
+    <br>
+    <br>
+    <a href="/books/{{ i.id }}/update" class="btn btn-primary">Изменить</a>
   </div>
 </div>
 <br>

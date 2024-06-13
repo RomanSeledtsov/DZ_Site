@@ -2,8 +2,6 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 
-
-
 class Tag(models.Model):
     name = models.CharField(max_length=120)
 
@@ -38,11 +36,11 @@ class Books(models.Model):
 
     )
 
-    name = models.CharField(max_length=100)
-    email = models.EmailField(default='@gmail.com')
-    image = models.ImageField(upload_to='images/')
-    about_book = models.TextField()
-    genre = models.CharField(max_length=20, choices=GENRE, null=True)
+    name = models.CharField(max_length=100, verbose_name='Имя книги', null=True)
+    email = models.EmailField(default='@gmail.com', verbose_name='Укажите email', blank=True)
+    image = models.ImageField(upload_to='images/', verbose_name='Загрузите обложку книги', null=True)
+    about_book = models.TextField(verbose_name='О книге', null=True)
+    genre = models.CharField(max_length=20, choices=GENRE, verbose_name='Укажите жанр книги', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
