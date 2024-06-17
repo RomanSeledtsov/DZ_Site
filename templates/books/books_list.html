@@ -1,25 +1,42 @@
 {% load static %}
 {% include '../header.html' %}
 <link rel="stylesheet" href="{% static 'css/crud_book.css' %}">
-<button type="button" class="btn btn-primary"><a href="/create_book/" class="book_url">Добавить книгу</a></button>
-<h1>Список книг</h1>
-{% for i in book %}
-<div class="card" style="width: 18rem;">
-  <img src="{{ i.image.url }}" class="card-img-top" alt="...">
+
+
+<div class="container">
+    <h1>📗 Список книг </h1>
+    <br>
+    <div class="row">
+        {% for i in book %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ i.image.url }}" class="card-img-top" alt="{{ i.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ i.name }}</h5>
+                    <p class="card-text">{{ i.genre }}</p>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="/books/{{ i.id }}/" class="btn btn-primary">О книге</a>
+                        <a href="/books/{{ i.id }}/delete" class="btn btn-danger">Удалить</a>
+                        <a href="/books/{{ i.id }}/update" class="btn btn-warning">Изменить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="/create_book/" class="btn btn-primary book_url">Добавить книгу</a>
+    <br><br>
+</div>
+
+{% for i in quote %}
+<br>
+<div class="card">
   <div class="card-body">
-    <h5 class="card-title">{{ i.name }}</h5>
-    <p class="card-text">{{ i.genre }}</p>
-    <a href="/books/{{ i.id }}/" class="btn btn-primary">О книге</a>
-    <a href="/books/{{ i.id }}/delete" class="btn btn-primary">Удалить</a>
-    <br>
-    <br>
-    <a href="/books/{{ i.id }}/update" class="btn btn-primary">Изменить</a>
+      <p class="quote-text">{{ i.text }}</p>
+      <p class="quote-author">- {{ i.author }}</p>
   </div>
 </div>
-<br>
 {% endfor %}
-
-
-
+<br>
 
 {% include '../footer.html' %}

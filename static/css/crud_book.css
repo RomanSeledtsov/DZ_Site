@@ -1,178 +1,224 @@
-/*edit book*/
+/* Общие стили */
+
 * {
-   box-sizing: border-box;
+    box-sizing: border-box;
 }
+
+/* Стили для страницы "edit book" */
+
 body {
-   background: #F5E9D9;
+    background: #F5E9D9;
 }
+
 .postcard {
-   max-width: 350px;
-   margin: 50px auto 0;
-   padding: 20px;
-   background: #fffdee;
-   border: 10px solid transparent;
-   border-image: 10 repeating-linear-gradient(135deg, #C42061, #C42061 10px, transparent 10px, transparent 20px, #FBCFDF 20px, #FBCFDF 30px, transparent 30px, transparent 40px);
-   font-family: 'Playfair Display';
-   color: #605756;
+    max-width: 350px;
+    margin: 50px auto 0;
+    padding: 20px;
+    background: #fffdee;
+    border: 10px solid transparent;
+    border-image: 10 repeating-linear-gradient(135deg, #C42061, #C42061 10px, transparent 10px, transparent 20px, #FBCFDF 20px, #FBCFDF 30px, transparent 30px, transparent 40px);
+    font-family: 'Playfair Display';
+    color: #605756;
 }
+
 .form-row {
-   margin-bottom: 15px;
+    margin-bottom: 15px;
 }
-.form-row input[type="text"], .form-row input[type="email"], .form-row textarea {
-   width: 100%;
-   padding: 0 10px;
-   line-height: 35px;
-   border-width: 0;
-   outline: none;
-   background: transparent url(https://html5book.ru/wp-content/uploads/2016/12/bg-form.png) bottom left repeat-x;
-   background-size: 8px 35px;
-   font-family: 'Playfair Display';
-}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
 .form-row textarea {
-   background-attachment: local;
-   background-repeat: repeat;
-   resize: none;
+    width: 100%;
+    padding: 0 10px;
+    line-height: 35px;
+    border-width: 0;
+    outline: none;
+    background: transparent url(https://html5book.ru/wp-content/uploads/2016/12/bg-form.png) bottom left repeat-x;
+    background-size: 8px 35px;
+    font-family: 'Playfair Display';
 }
-.form-row input[type="submit"] {
-   padding: 10px 20px;
-   margin-top: 10px;
-   background: #F67CA5;
-   border-width: 0;
-   cursor: pointer;
-   outline: none;
-   font-family: 'Playfair Display';
-   font-size: 13px;
-   letter-spacing: 1px;
-   color: #fffdee;
-   text-transform: uppercase;
-   transition: 1s cubic-bezier(.165, .84, .44, 1);
+
+.form-row textarea {
+    background-attachment: local;
+    background-repeat: repeat;
+    resize: none;
 }
+
+.form-row input[type="submit"],
 .form-row input[type="reset"] {
-   padding: 10px 20px;
-   margin-top: 10px;
-   background: #F67CA5;
-   border-width: 0;
-   cursor: pointer;
-   outline: none;
-   font-family: 'Playfair Display';
-   font-size: 13px;
-   letter-spacing: 1px;
-   color: #fffdee;
-   text-transform: uppercase;
-   transition: 1s cubic-bezier(.165, .84, .44, 1);
-}
-.form-row input[type=submit]:hover {
-   background: #C42061;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: #F67CA5;
+    border-width: 0;
+    cursor: pointer;
+    outline: none;
+    font-family: 'Playfair Display';
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #fffdee;
+    text-transform: uppercase;
+    transition: 1s cubic-bezier(.165, .84, .44, 1);
 }
 
-
-
-
-
-/*create book*/
-* {
-   box-sizing: border-box;
+.form-row input[type="submit"]:hover,
+.form-row input[type="reset"]:hover {
+    background: #C42061;
 }
+
+/* Стили для страницы "create book" */
+
 body {
-   background: #f69a73;
+    background: #f69a73;
 }
+
 .decor {
-   position: relative;
-   max-width: 500px;
-   margin: 50px auto 0;
-   background: wheat;
-   border-radius: 50px;
+    position: relative;
+    max-width: 500px;
+    margin: 50px auto 0;
+    background: wheat;
+    border-radius: 50px;
 }
-.form-left-decoration, .form-right-decoration {
-   content: "";
-   position: absolute;
-   width: 50px;
-   height: 20px;
-   background: #f69a73;
-   border-radius: 20px;
-}
-.form-left-decoration {
-   bottom: 60px;
-   left: -30px;
-}
+
+.form-left-decoration,
 .form-right-decoration {
-   top: 300px;
-   right: -30px;
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    background: #f69a73;
+    border-radius: 20px;
 }
-.form-left-decoration:before, .form-left-decoration:after, .form-right-decoration:before, .form-right-decoration:after {
-   content: "";
-   position: absolute;
-   width: 50px;
-   height: 20px;
-   border-radius: 30px;
-   background: white;
+
+.form-left-decoration {
+    bottom: 60px;
+    left: -30px;
 }
-.form-left-decoration:before {
-   top: -20px;
+
+.form-right-decoration {
+    top: 300px;
+    right: -30px;
 }
-.form-left-decoration:after {
-   top: 20px;
-   left: 10px;
-}
-.form-right-decoration:before {
-   top: -20px;
-   right: 0;
-}
+
+.form-left-decoration:before,
+.form-left-decoration:after,
+.form-right-decoration:before,
 .form-right-decoration:after {
-   top: 20px;
-   right: 10px;
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    border-radius: 30px;
+    background: white;
 }
+
+.form-left-decoration:before {
+    top: -20px;
+}
+
+.form-left-decoration:after {
+    top: 20px;
+    left: 10px;
+}
+
+.form-right-decoration:before {
+    top: -20px;
+    right: 0;
+}
+
+.form-right-decoration:after {
+    top: 20px;
+    right: 10px;
+}
+
 .circle {
-   position: absolute;
-   bottom: 80px;
-   left: -55px;
-   width: 20px;
-   height: 20px;
-   border-radius: 50%;
-   background: white;
+    position: absolute;
+    bottom: 80px;
+    left: -55px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
 }
+
 .form-inner {
-   padding: 40px;
+    padding: 40px;
 }
-.form-inner input, .form-inner textarea {
-   display: block;
-   width: 70%;
-   padding: 0 20px;
-   margin-bottom: 10px;
-   background: #E9EFF6;
-   line-height: 30px;
-   border-width: 0;
-   border-radius: 20px;
-   font-family: 'Roboto', sans-serif;
-}
-.form-inner input[type="submit"] {
-   margin-top: 30px;
-   background: #f69a73;
-   border-bottom: 4px solid #d87d56;
-   color: white;
-   font-size: 14px;
-}
-.form-inner input[type="reset"] {
-   margin-top: 10px;
-   background: #f69a73;
-   border-bottom: 4px solid #d87d56;
-   color: white;
-   font-size: 14px;
-}
+
+.form-inner input,
 .form-inner textarea {
-   resize: none;
+    display: block;
+    width: 70%;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    background: #E9EFF6;
+    line-height: 30px;
+    border-width: 0;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
 }
+
+.form-inner input[type="submit"],
+.form-inner input[type="reset"] {
+    margin-top: 30px;
+    background: #f69a73;
+    border-bottom: 4px solid #d87d56;
+    color: white;
+    font-size: 14px;
+}
+
+.form-inner textarea {
+    resize: none;
+}
+
 .form-inner h3 {
-   margin-top: 0;
-   font-family: 'Roboto', sans-serif;
-   font-weight: 500;
-   font-size: 24px;
-   color: #707981;
+    margin-top: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #707981;
+}
+
+/* Дополнительные стили для карточек или других элементов */
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #605756;
+}
+
+.card-text {
+    color: #707981;
+    margin-bottom: 10px;
+}
+
+.btn {
+    margin-top: 10px;
 }
 
 
+/* Стили для кнопки "Добавить книгу" */
 
-.book_url{
+.book_url {
     color: white;
     text-decoration: none;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
 }
+
+.book_url:hover {
+    background-color: #0056b3;
+}
+
+
+

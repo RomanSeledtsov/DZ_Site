@@ -27,6 +27,23 @@ class MyBooks(models.Model):
         verbose_name_plural = 'Книги с тегами'
 
 
+class Quote(models.Model):
+    text = models.TextField()
+    author = models.CharField(max_length=120)
+
+    def __str__(self):
+        return f'{self.text} - {self.author}'
+
+    class Meta:
+        verbose_name = 'Цитату'
+        verbose_name_plural = 'Цитаты'
+
+
+
+
+
+
+
 class Books(models.Model):
     GENRE = (
         ('Романтика', 'Романтика'),
