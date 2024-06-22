@@ -1,25 +1,27 @@
-<ul>
-    {% for i in users %}
-    <li>
-        <h3>Привет - {{ i.username }}</h3>
-        <br>
-        <p>Почта - {{ i.email }}</p>
-        <p>Пол - {{ i.gender }}</p>
-        <p>Имя - {{ i.first_name }}</p>
-        <p>Фамилия - {{ i.last_name }}</p>
-        <p>Возраст - {{ i.age}}</p>
-        <p>Страна - {{ i.country }}</p>
-        <p>Город - {{ i.city }}</p>
-        {% if i.group %}
-        <p>У вас {{i.group}} группа</p>
-        {% else %}
-        <p>Группа не определена</p>
-        {% endif %}
-    </li>
-    {% endfor %}
-</ul>
-
-<form action="{% url 'users:logout' %}" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <button type="submit">Выйти из аккаунта</button>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Профиль пользователя</title>
+</head>
+<body>
+    <ul class="list-group">
+        {% for i in object_list %}
+        <li class="list-group-item">
+            <h1 class="mb-4">Привет, Читатель - {{ i.username }}</h1>
+            <p class="mb-1">Почта: {{ i.email }}</p>
+            <p class="mb-1">Имя: {{ i.first_name }}</p>
+            <p class="mb-1">Возраст: {{ i.age }}</p>
+            {% if i.allowed_genres %}
+                <p class="mb-1">Вам можно читать: {{ i.allowed_genres }}</p>
+            {% else %}
+                <p class="mb-1">Ваши жанры не определены</p>
+            {% endif %}
+            <p class="mb-1">Ваша любимая книга: {{ i.favourite_book }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <form action="{% url 'users:logout' %}" method="POST" enctype="multipart/form-data">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
