@@ -1,0 +1,25 @@
+<ul>
+    {% for i in users %}
+    <li>
+        <h3>Привет - {{ i.username }}</h3>
+        <br>
+        <p>Почта - {{ i.email }}</p>
+        <p>Пол - {{ i.gender }}</p>
+        <p>Имя - {{ i.first_name }}</p>
+        <p>Фамилия - {{ i.last_name }}</p>
+        <p>Возраст - {{ i.age}}</p>
+        <p>Страна - {{ i.country }}</p>
+        <p>Город - {{ i.city }}</p>
+        {% if i.group %}
+        <p>У вас {{i.group}} группа</p>
+        {% else %}
+        <p>Группа не определена</p>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+<form action="{% url 'users:logout' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <button type="submit">Выйти из аккаунта</button>
+</form>

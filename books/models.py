@@ -39,11 +39,6 @@ class Quote(models.Model):
         verbose_name_plural = 'Цитаты'
 
 
-
-
-
-
-
 class Books(models.Model):
     GENRE = (
         ('Романтика', 'Романтика'),
