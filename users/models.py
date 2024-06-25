@@ -16,7 +16,7 @@ class CustomUser(User):
     )
     gender = models.CharField(max_length=50, choices=GENDER)
     allowed_ganres = models.CharField(max_length=50, default="Не определенно")
-    favourite_book = models.CharField(max_length=100, default="Нет")
+    favourite_book = models.CharField(max_length=100, default="Нет любимой книги")
 
 
 @receiver(post_save, sender=CustomUser)
