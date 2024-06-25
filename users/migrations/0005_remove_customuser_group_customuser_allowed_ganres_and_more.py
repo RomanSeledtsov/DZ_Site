@@ -7,32 +7,40 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0004_alter_customuser_age_alter_customuser_gender_and_more'),
+        ("users", "0004_alter_customuser_age_alter_customuser_gender_and_more"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='customuser',
-            name='group',
+            model_name="customuser",
+            name="group",
         ),
         migrations.AddField(
-            model_name='customuser',
-            name='allowed_ganres',
-            field=models.CharField(default='Не определенно', max_length=50),
+            model_name="customuser",
+            name="allowed_ganres",
+            field=models.CharField(default="Не определенно", max_length=50),
         ),
         migrations.AddField(
-            model_name='customuser',
-            name='favourite_book',
-            field=models.CharField(default='Нет', max_length=100),
+            model_name="customuser",
+            name="favourite_book",
+            field=models.CharField(default="Нет", max_length=100),
         ),
         migrations.AlterField(
-            model_name='customuser',
-            name='age',
-            field=models.PositiveSmallIntegerField(default=19, validators=[django.core.validators.MinValueValidator(5), django.core.validators.MaxValueValidator(90)]),
+            model_name="customuser",
+            name="age",
+            field=models.PositiveSmallIntegerField(
+                default=19,
+                validators=[
+                    django.core.validators.MinValueValidator(5),
+                    django.core.validators.MaxValueValidator(90),
+                ],
+            ),
         ),
         migrations.AlterField(
-            model_name='customuser',
-            name='gender',
-            field=models.CharField(choices=[('Male', 'Male'), ('Female', 'Female')], max_length=50),
+            model_name="customuser",
+            name="gender",
+            field=models.CharField(
+                choices=[("Male", "Male"), ("Female", "Female")], max_length=50
+            ),
         ),
     ]

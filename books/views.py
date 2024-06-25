@@ -9,30 +9,34 @@ from django.views import generic
 
 # Search button
 
+
 class SearchView(generic.ListView):
-    template_name = 'books/books_list.html'
-    context_object_name = 'book'
+    template_name = "books/books_list.html"
+    context_object_name = "book"
     paginate_by = 5
 
     def get_queryset(self):
-        return models.Books.objects.filter(name__icontains=self.request.GET.get('q')).order_by('-id')
+        return models.Books.objects.filter(
+            name__icontains=self.request.GET.get("q")
+        ).order_by("-id")
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['q'] = self.request.GET.get('q')
+        context["q"] = self.request.GET.get("q")
         return context
 
 
 # CRUD UPDATE-DELETE-READ-CREATE
 
+
 # Edit book
 class EditBooksView(generic.UpdateView):
-    template_name = 'books/edit_book.html'
+    template_name = "books/edit_book.html"
     form_class = forms.BookForm
-    success_url = '/books/'
+    success_url = "/books/"
 
     def get_object(self, **kwargs):
-        book_id = self.kwargs.get('id')
+        book_id = self.kwargs.get("id")
         return get_object_or_404(models.Books, id=book_id)
 
     def form_valid(self, form):
@@ -42,69 +46,68 @@ class EditBooksView(generic.UpdateView):
 
 # Delete book
 class DeleteBookView(generic.DeleteView):
-    template_name = 'books/confirm_delete.html'
-    success_url = '/books/'
+    template_name = "books/confirm_delete.html"
+    success_url = "/books/"
 
     def get_object(self, **kwargs):
-        book_id = self.kwargs.get('id')
+        book_id = self.kwargs.get("id")
         return get_object_or_404(models.Books, id=book_id)
 
 
 # Create book
 class CreateBookView(generic.CreateView):
-    template_name = 'books/create_book.html'
+    template_name = "books/create_book.html"
     form_class = forms.BookForm
-    success_url = '/books/'
+    success_url = "/books/"
 
     def form_valid(self, form):
         print(form.cleaned_data)
         return super(CreateBookView, self).form_valid(form=form)
 
 
-
 # Adventure tag
 class AdventTagView(generic.ListView):
-    template_name = 'my_books/advents_tags.html'
-    context_object_name = 'advents_tags'
+    template_name = "my_books/advents_tags.html"
+    context_object_name = "advents_tags"
 
     def get_queryset(self):
-        return models.MyBooks.objects.filter(tags__name="Приключения").order_by('-id')
+        return models.MyBooks.objects.filter(tags__name="Приключения").order_by("-id")
 
 
 # My books
 class AllBooks(generic.ListView):
-    template_name = 'my_books/all_books.html'
-    context_object_name = 'books'
+    template_name = "my_books/all_books.html"
+    context_object_name = "books"
 
     def get_queryset(self):
-        return models.MyBooks.objects.filter().order_by('-id')
+        return models.MyBooks.objects.filter().order_by("-id")
 
 
 # Book detail
 
+
 class BooksDetailView(generic.DetailView):
-    template_name = 'books/books_detail.html'
-    context_object_name = 'book_id'
+    template_name = "books/books_detail.html"
+    context_object_name = "book_id"
 
     def get_object(self, **kwargs):
-        book_id = self.kwargs.get('id')
+        book_id = self.kwargs.get("id")
         return get_object_or_404(models.Books, id=book_id)
 
 
 # Book list
 
+
 class BooksListView(generic.ListView):
-    template_name = 'books/books_list.html'
-    context_object_name = 'book'
+    template_name = "books/books_list.html"
+    context_object_name = "book"
     model = models.Books
-    ordering = ['-id']
+    ordering = ["-id"]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['quote'] = models.Quote.objects.filter().order_by('-id')
+        context["quote"] = models.Quote.objects.filter().order_by("-id")
         return context
-
-
 
 
 # def edit_book_view(request, id):

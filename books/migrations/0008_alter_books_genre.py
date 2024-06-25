@@ -6,13 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('books', '0007_alter_books_options_and_more'),
+        ("books", "0007_alter_books_options_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='books',
-            name='genre',
-            field=models.CharField(choices=[('Романтика', 'Романтика'), ('Детектив', 'Детектив'), ('Фантастика', 'Фантастика'), ('Научная фантастика', 'Научная фантастика')], max_length=20, null=True),
+            model_name="books",
+            name="genre",
+            field=models.CharField(
+                choices=[
+                    ("Романтика", "Романтика"),
+                    ("Детектив", "Детектив"),
+                    ("Фантастика", "Фантастика"),
+                    ("Научная фантастика", "Научная фантастика"),
+                ],
+                max_length=20,
+                null=True,
+            ),
         ),
     ]

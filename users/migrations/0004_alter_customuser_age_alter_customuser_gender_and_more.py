@@ -7,28 +7,36 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0003_customuser_phone_number'),
+        ("users", "0003_customuser_phone_number"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='customuser',
-            name='age',
-            field=models.PositiveIntegerField(default=18, validators=[django.core.validators.MaxValueValidator(99), django.core.validators.MinValueValidator(5)]),
+            model_name="customuser",
+            name="age",
+            field=models.PositiveIntegerField(
+                default=18,
+                validators=[
+                    django.core.validators.MaxValueValidator(99),
+                    django.core.validators.MinValueValidator(5),
+                ],
+            ),
         ),
         migrations.AlterField(
-            model_name='customuser',
-            name='gender',
-            field=models.CharField(choices=[('Male', 'Male'), ('Female', 'Female')], max_length=100),
+            model_name="customuser",
+            name="gender",
+            field=models.CharField(
+                choices=[("Male", "Male"), ("Female", "Female")], max_length=100
+            ),
         ),
         migrations.AlterField(
-            model_name='customuser',
-            name='group',
-            field=models.CharField(default='Клуб не определен', max_length=50),
+            model_name="customuser",
+            name="group",
+            field=models.CharField(default="Клуб не определен", max_length=50),
         ),
         migrations.AlterField(
-            model_name='customuser',
-            name='phone_number',
-            field=models.CharField(default='+996', max_length=14),
+            model_name="customuser",
+            name="phone_number",
+            field=models.CharField(default="+996", max_length=14),
         ),
     ]

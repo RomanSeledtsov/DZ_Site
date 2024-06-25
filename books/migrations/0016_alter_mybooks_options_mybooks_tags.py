@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('books', '0015_rename_products_mybooks_alter_mybooks_options'),
+        ("books", "0015_rename_products_mybooks_alter_mybooks_options"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='mybooks',
-            options={'verbose_name': 'вашу книгу', 'verbose_name_plural': 'Мои книги'},
+            name="mybooks",
+            options={"verbose_name": "вашу книгу", "verbose_name_plural": "Мои книги"},
         ),
         migrations.AddField(
-            model_name='mybooks',
-            name='tags',
-            field=models.ManyToManyField(to='books.tag'),
+            model_name="mybooks",
+            name="tags",
+            field=models.ManyToManyField(to="books.tag"),
         ),
     ]

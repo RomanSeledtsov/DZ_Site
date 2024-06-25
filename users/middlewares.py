@@ -7,7 +7,9 @@ class AgeGroupMiddleware(MiddlewareMixin):
         if request.path == "/register/" and request.method == "POST":
             age = int(request.POST.get("age"))
             if age < 5:
-                return HttpResponseBadRequest("Возраст не подходит для регистрации (слишком малы)")
+                return HttpResponseBadRequest(
+                    "Возраст не подходит для регистрации (слишком малы)"
+                )
             elif age >= 5 and age <= 10:
                 request.allowed_ganres = "Сказки"
             elif age >= 11 and age <= 18:
